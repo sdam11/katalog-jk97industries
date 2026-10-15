@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jk97industries_ - Katalog Konveksi, Sablon & Bordir Custom</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts Inter & Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        accent: {
+                            50: '#fffbebe',
+                            100: '#fef3c7',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                        },
+                        dark: {
+                            800: '#111827',
+                            850: '#0f172a',
+                            900: '#0b0f19',
+                            950: '#030712',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-nav {
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(16px);
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.3);
+        }
+        .hover-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px 0 rgba(245, 158, 11, 0.15);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #374151;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f59e0b;
+        }
+    </style>
+</head>
+<body class="bg-dark-950 text-slate-100 font-sans antialiased overflow-x-hidden">
+
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logo Brand -->
+                <a href="#home" class="flex items-center space-x-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-accent-500 to-amber-600 flex items-center justify-center text-dark-950 font-black text-xl shadow-lg shadow-accent-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-shirt"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-heading font-extrabold text-xl text-white tracking-wider group-hover:text-accent-400 transition-colors">
+                            jk97industries<span class="text-accent-500">_</span>
+                        </span>
+                        <span class="text-[10px] tracking-widest text-slate-400 uppercase font-semibold">Apparel & Embroidery</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide text-slate-300">
+                    <a href="#home" class="hover:text-accent-400 transition-colors">Beranda</a>
+                    <a href="#katalog" class="hover:text-accent-400 transition-colors">Katalog</a>
+                    <a href="#keunggulan" class="hover:text-accent-400 transition-colors">Keunggulan</a>
+                    <a href="#cara-order" class="hover:text-accent-400 transition-colors">Cara Order</a>
+                    <a href="#faq" class="hover:text-accent-400 transition-colors">FAQ</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden md:flex items-center">
+                    <button onclick="orderWA('General Info & Konsultasi')" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-accent-500 to-amber-600 hover:from-accent-600 hover:to-amber-700 text-dark-950 font-bold text-sm transition-all shadow-lg shadow-amber-500/20 flex items-center gap-2 hover:scale-105">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Hubungi WA</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-900 border-b border-slate-800 px-4 pt-3 pb-6 space-y-3">
+            <a href="#home" class="block py-2 text-slate-200 font-medium hover:text-accent-400">Beranda</a>
+            <a href="#katalog" class="block py-2 text-slate-200 font-medium hover:text-accent-400">Katalog Produk</a>
+            <a href="#keunggulan" class="block py-2 text-slate-200 font-medium hover:text-accent-400">Keunggulan</a>
+            <a href="#cara-order" class="block py-2 text-slate-200 font-medium hover:text-accent-400">Cara Order</a>
+            <a href="#faq" class="block py-2 text-slate-200 font-medium hover:text-accent-400">FAQ</a>
+            <button onclick="orderWA('Konsultasi via Mobile Menu')" class="w-full py-3 mt-3 rounded-xl bg-accent-500 text-dark-950 font-bold flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>Chat WhatsApp (+62 819-0323-6949)</span>
+            </button>
+        </div>
+    </header>
+
+    <section id="home" class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('background.jpeg');">
+    
+        <div class="absolute inset-0 bg-dark-950/80"></div>
+        <div class="absolute top-1/4 -left-32 w-96 h-96 bg-accent-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-0 w-96 h-96 bg-amber-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 border border-slate-800 text-xs font-bold text-accent-400 uppercase tracking-widest shadow-inner">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                        Vendor Konveksi & Sablon Bang Arip
+                    </div>
+                    
+                    <h1 class="font-heading text-4xl sm:text-6xl font-black text-white tracking-tight leading-[1.15]">
+                        SOLUSI BIKIN <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-400 via-amber-400 to-yellow-500">KAOS SABLON</span> & <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-400 to-slate-400">BORDIR</span> CUSTOM
+                    </h1>
+                    
+                    <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Produsen konveksi tepercaya dari <strong class="text-white">jk97industries_</strong>. Melayani pembuatan kaos komunitas, kemeja PDL, jaket, topi, hingga merchandise custom dengan jahitan presisi dan bahan premium!
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#katalog" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-accent-500 to-amber-600 hover:from-accent-600 hover:to-amber-700 text-dark-950 font-black tracking-wide text-center transition-all shadow-xl shadow-accent-500/20 flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                            <span>EXPLORE KATALOG</span>
+                        </a>
+                        <button onclick="orderWA('Konsultasi Hero Banner')" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-white font-bold text-center transition-all flex items-center justify-center gap-3">
+                            <i class="fa-brands fa-whatsapp text-emerald-400 text-xl"></i>
+                            <span>TANYA HARGA / DESAIN</span>
+                        </button>
+                        <a href="https://heyzine.com/flip-book/055217bab7.html" target="_blank" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-700/80 text-accent-400 font-bold text-center transition-all flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-book-open text-lg"></i>
+                            <span>KATALOG LENGKAP</span>
+                        </a>
+                    </div>
+
+                    <!-- Highlight Badges -->
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-slate-800/80 max-w-lg mx-auto lg:mx-0 text-left">
+                        <div class="space-y-1">
+                            <h4 class="font-bold text-white text-lg">Sablon Plastisol</h4>
+                            <p class="text-xs text-slate-400">Detail & Presisi High Quality</p>
+                        </div>
+                        <div class="space-y-1">
+                            <h4 class="font-bold text-white text-lg">Bordir Komputer</h4>
+                            <p class="text-xs text-slate-400">Rapi, Padat & Awet</p>
+                        </div>
+                        <div class="space-y-1">
+                            <h4 class="font-bold text-white text-lg">Min. Order Fleksibel</h4>
+                            <p class="text-xs text-slate-400">Bisa Lusinan / Partai</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Banner Interactive Showcase Card -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div class="glass-card rounded-3xl p-4 sm:p-6 shadow-2xl relative z-10 hover-card">
+                            <div class="relative h-80 rounded-2xl overflow-hidden mb-5">
+                                <img id="hero-img" src="profil.jpeg" alt="jk97industries_" class="w-full h-full object-cover transition-all duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-transparent opacity-80"></div>
+                                <div class="absolute top-3 left-3 bg-dark-950/80 backdrop-blur-md border border-slate-700 px-3 py-1 rounded-full text-xs font-bold text-accent-400">
+                                    Official Showcase
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs font-extrabold uppercase tracking-wider text-accent-400">jk97industries_</span>
+                                    <span class="text-xs text-emerald-400 font-semibold"><i class="fa-solid fa-circle text-[8px] mr-1"></i> Siap Kirim Seluruh Indo</span>
+                                </div>
+                                <h3 class="text-xl font-extrabold text-white">Konveksi Apparel & Merchandise</h3>
+                                <p class="text-xs text-slate-400 leading-relaxed">
+                                    Terima pesanan instansi, kampus, sekolah, hingga apparel brand fashion kamu sendiri.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="absolute -inset-2 bg-gradient-to-r from-accent-500 to-amber-600 rounded-3xl opacity-20 blur-xl"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="katalog" class="py-20 bg-dark-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-extrabold tracking-widest text-accent-500 uppercase">PILIH KATEGORI PRODUK</span>
+                <h2 class="font-heading text-3xl sm:text-5xl font-black text-white mt-2">Katalog Usaha Konveksi</h2>
+                <p class="text-slate-400 mt-4 text-sm sm:text-base">
+                    Klik tab di bawah ini untuk melihat daftar produk <strong class="text-accent-400">KAOS (SABLON)</strong> atau <strong class="text-amber-400">BORDIR KOMPUTER</strong>.
+                </p>
+            </div>
+
+            <!-- Tab Switcher Navigation -->
+            <div class="flex justify-center mb-12">
+                <div class="bg-dark-950 p-2 rounded-2xl border border-slate-800 flex space-x-2 max-w-md w-full shadow-2xl">
+                    <button id="btn-tab-kaos" onclick="switchCategory('kaos')" class="flex-1 py-3 sm:py-4 px-4 rounded-xl font-heading font-black text-xs sm:text-sm tracking-wider transition-all duration-300 flex items-center justify-center gap-2 bg-gradient-to-r from-accent-500 to-amber-600 text-dark-950 shadow-lg shadow-accent-500/20">
+                        <i class="fa-solid fa-shirt text-base"></i>
+                        <span>KAOS (SABLON)</span>
+                    </button>
+                    <button id="btn-tab-bordir" onclick="switchCategory('bordir')" class="flex-1 py-3 sm:py-4 px-4 rounded-xl font-heading font-black text-xs sm:text-sm tracking-wider transition-all duration-300 flex items-center justify-center gap-2 text-slate-400 hover:text-white hover:bg-slate-900">
+                        <i class="fa-solid fa-vest-patches text-base"></i>
+                        <span>BORDIR</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ================= KATALOG KAOS & SABLON ================= -->
+            <div id="category-kaos" class="catalog-tab transition-opacity duration-300">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Kaos Item 1 -->
+                    <div class="glass-card rounded-2xl overflow-hidden hover-card flex flex-col justify-between border border-slate-800">
+                        <div>
+                            <div class="relative h-60 overflow-hidden bg-slate-900">
+                                <img src="kaos.jpeg" alt="Rincian Produk T-shirt" class="w-full h-full object-cover">
+                                <span class="absolute top-3 left-3 bg-accent-500 text-dark-950 font-black text-[10px] px-2.5 py-1 rounded-md uppercase tracking-wider">Best Seller</span>
+                            </div>
+                            <div class="p-5 space-y-2">
+                                <span class="text-[11px] font-bold text-accent-400 uppercase tracking-wider">Produk T-shirt</span>
+                                <h3 class="text-lg font-bold text-white">Rincian Produk T-shirt</h3>
+                                <p class="text-xs text-slate-400 line-clamp-2">Bahan (Cotton premium 24s, cotton 20s,16s lokal) adem dengan sablon plastisol karet elastis dan Teknologi cetak DTF cocok untuk gambar foto/desain dengan gradasi banyak warna detail, warna tajam & tidak pecah.</p>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-0">
+                            <div class="pt-3 border-t border-slate-800 flex gap-2">
+                                <button onclick="openModal('Rincian Produk T-shirt', 'Bahan (Cotton premium 24s, cotton 20s,16s lokal)', 'Plastisol Karet High Quality, Direct to Film (DTF) Digital Print', 'Bisa satuan dan grup', 'S, M, L, XL, -5XL', 'kaos.jpeg')" class="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition-colors">
+                                    Detail
+                                </button>
+                                <button onclick="orderWA('Rincian Produk T-shirt')" class="flex-1 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-colors flex items-center justify-center gap-1.5">
+                                    <i class="fa-brands fa-whatsapp"></i> Order
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kaos Item 2 -->
+                    <div class="glass-card rounded-2xl overflow-hidden hover-card flex flex-col justify-between border border-slate-800">
+                        <div>
+                            <div class="relative h-60 overflow-hidden bg-slate-900">
+                                <img src="jersey.jpeg" alt="Produk Jersey" class="w-full h-full object-cover">
+                                <span class="absolute top-3 left-3 bg-amber-500 text-dark-950 font-black text-[10px] px-2.5 py-1 rounded-md uppercase tracking-wider">Full Color</span>
+                            </div>
+                            <div class="p-5 space-y-2">
+                                <span class="text-[11px] font-bold text-accent-400 uppercase tracking-wider">Produk Jersey</span>
+                                <h3 class="text-lg font-bold text-white">Rincian Produk Jersey</h3>
+                                <p class="text-xs text-slate-400 line-clamp-2">Bahan Dry-fit (milano,brazil,puma/standart),Printing/sublom.</p>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-0">
+                            <div class="pt-3 border-t border-slate-800 flex gap-2">
+                                <button onclick="openModal('Rincian Produk Jersey', 'Bahan Dry-fit (milano,brazil,puma/standart)', 'Printing/sublom', 'Bisa satuan dan grub', 'S, M, L, XL, -5XL', 'jersey.jpeg')" class="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition-colors">
+                                    Detail
+                                </button>
+                                <button onclick="orderWA('Rincian Produk Jersey')" class="flex-1 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-colors flex items-center justify-center gap-1.5">
+                                    <i class="fa-brands fa-whatsapp"></i> Order
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ================= KATALOG BORDIR ================= -->
+            <div id="category-bordir" class="catalog-tab hidden transition-opacity duration-300">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                    <!-- Bordir Item 1 -->
+                    <div class="glass-card rounded-2xl overflow-hidden hover-card flex flex-col justify-between border border-slate-800">
+                        <div>
+                            <div class="relative h-60 overflow-hidden bg-slate-900">
+                                <img src="polo.jpeg" alt="Produk polo-shirt" class="w-full h-full object-cover">
+                                <span class="absolute top-3 left-3 bg-blue-600 text-white font-black text-[10px] px-2.5 py-1 rounded-md uppercase tracking-wider">Elegan</span>
+                            </div>
+                            <div class="p-5 space-y-2">
+                                <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider">Pixue Hexagon PVC</span>
+                                <h3 class="text-lg font-bold text-white">Produk Polo-shirt</h3>
+                                <p class="text-xs text-slate-400 line-clamp-2">Bahan Pixue Hexagon PVC Premium, Bordir 2 titik.</p>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-0">
+                            <div class="pt-3 border-t border-slate-800 flex gap-2">
+                                <button onclick="openModal('Produk Polo-shirt', 'Pixue Hexagon PVC Premium', 'Bordir 2 titik', 'Bisa satuan dan grub', 'S, M, L, XL, -5XL', 'polo.jpeg')" class="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition-colors">
+                                    Detail
+                                </button>
+                                <button onclick="orderWA('Produk Polo-shirt')" class="flex-1 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-colors flex items-center justify-center gap-1.5">
+                                    <i class="fa-brands fa-whatsapp"></i> Order
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bordir Item 2 -->
+                    <div class="glass-card rounded-2xl overflow-hidden hover-card flex flex-col justify-between border border-slate-800">
+                        <div>
+                            <div class="relative h-60 overflow-hidden bg-slate-900">
+                                <img src="workshit.jpeg" alt="Polo Shirt Bordir" class="w-full h-full object-cover">
+                                <span class="absolute top-3 left-3 bg-amber-500 text-dark-950 font-black text-[10px] px-2.5 py-1 rounded-md uppercase tracking-wider">Berwibawa</span>
+                            </div>
+                            <div class="p-5 space-y-2">
+                                <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider">Lacoste CVC</span>
+                                <h3 class="text-lg font-bold text-white">Produk Workshit</h3>
+                                <p class="text-xs text-slate-400 line-clamp-2">Bahan American drill dan nagata drill, bordir 2 titik.</p>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-0">
+                            <div class="pt-3 border-t border-slate-800 flex gap-2">
+                                <button onclick="openModal('Produk Workshit', 'American dan Nagata drill', 'Bordir 2 titik', 'Bisa satuan dan grub', 'S, M, L, XL, XXL', 'workshit.jpeg')" class="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition-colors">
+                                    Detail
+                                </button>
+                                <button onclick="orderWA('Produk Workshit')" class="flex-1 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-colors flex items-center justify-center gap-1.5">
+                                    <i class="fa-brands fa-whatsapp"></i> Order
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="keunggulan" class="py-20 bg-dark-950 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-extrabold tracking-widest text-accent-500 uppercase">WHY CHOOSE US</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-black text-white mt-2">Keunggulan jk97industries_</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-4 hover-card">
+                    <div class="w-14 h-14 rounded-xl bg-accent-500/10 border border-accent-500/30 text-accent-400 flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Gratis Bantuan Desain</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Belum punya desain fix? Tim kami siap membantu membuatkan mockup visual pakaian sebelum diproduksi massal.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-4 hover-card">
+                    <div class="w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Mesin Bordir & Sablon Pro</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Menggunakan mesin bordir komputer multi-head berkecepatan tinggi serta tinta sablon kualitas distro impor.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-4 hover-card">
+                    <div class="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-shield-check"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Quality Control Ketat</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Setiap potong baju melewati proses grading, finishing pembersihan benang, dan pemeliharaan standar kualitas.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-4 hover-card">
+                    <div class="w-14 h-14 rounded-xl bg-blue-500/10 border border-blue-500/30 text-blue-400 flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Tepat Waktu & Kirim Se-Indo</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Komitmen pengerjaan sesuai deadline dengan dukungan opsi ekspedisi kargo darat, laut, dan udara murah.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="cara-order" class="py-16 bg-dark-900 border-t border-b border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-extrabold tracking-widest text-accent-500 uppercase">ALUR PEMESANAN</span>
+                <h2 class="font-heading text-3xl font-black text-white mt-1">4 Langkah Mudah Order</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                <div class="p-6 rounded-2xl bg-dark-950 border border-slate-800 space-y-3">
+                    <div class="w-10 h-10 rounded-full bg-slate-800 text-accent-400 font-black text-sm flex items-center justify-center mx-auto border border-slate-700">1</div>
+                    <h4 class="font-bold text-white text-base">Konsultasi WA</h4>
+                    <p class="text-xs text-slate-400">Hubungi kami via WhatsApp (+62 819-0323-6949) & kirimkan gambar desain/ide kamu.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-dark-950 border border-slate-800 space-y-3">
+                    <div class="w-10 h-10 rounded-full bg-slate-800 text-accent-400 font-black text-sm flex items-center justify-center mx-auto border border-slate-700">2</div>
+                    <h4 class="font-bold text-white text-base">Penawaran & DP</h4>
+                    <p class="text-xs text-slate-400">Kesepakatan total biaya, pilihan jenis bahan, size chart, dan pembayaran uang muka (DP).</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-dark-950 border border-slate-800 space-y-3">
+                    <div class="w-10 h-10 rounded-full bg-slate-800 text-accent-400 font-black text-sm flex items-center justify-center mx-auto border border-slate-700">3</div>
+                    <h4 class="font-bold text-white text-base">Proses Produksi</h4>
+                    <p class="text-xs text-slate-400">Pengerjaan pemotongan bahan, sablon / bordir komputer, jahit hingga proses Quality Control.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-dark-950 border border-slate-800 space-y-3">
+                    <div class="w-10 h-10 rounded-full bg-slate-800 text-accent-400 font-black text-sm flex items-center justify-center mx-auto border border-slate-700">4</div>
+                    <h4 class="font-bold text-white text-base">Pelunasan & Kirim</h4>
+                    <p class="text-xs text-slate-400">Pakaian siap di-packing rapi, pelunasan sisa tagihan, dan barang siap dikirim ke alamatmu!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-20 bg-dark-950">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-xs font-extrabold tracking-widest text-accent-500 uppercase">PERTANYAAN UMUM</span>
+                <h2 class="font-heading text-3xl font-black text-white mt-1">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="space-y-4">
+                <div class="glass-card rounded-xl p-5 border border-slate-800">
+                    <h4 class="font-bold text-white text-sm sm:text-base mb-2"><i class="fa-solid fa-circle-question text-accent-400 mr-2"></i> Berapa minimal pemesanan (MOQ) di jk97industries_?</h4>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed pl-6">
+                        Minimal pemesanan kaos sablon dan kemeja bordir standard mulai dari satuan hingga partai sangat bisa untuk dilayani.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-xl p-5 border border-slate-800">
+                    <h4 class="font-bold text-white text-sm sm:text-base mb-2"><i class="fa-solid fa-circle-question text-accent-400 mr-2"></i> Berapa lama estimasi pengerjaan pesanannya?</h4>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed pl-6">
+                        Normalnya 7 sampai 14 hari kerja tergantung jumlah antrean pesanan & tingkat kerumitan desain. Ada layanan kilat jika kamu butuh deadline khusus.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-xl p-5 border border-slate-800">
+                    <h4 class="font-bold text-white text-sm sm:text-base mb-2"><i class="fa-solid fa-circle-question text-accent-400 mr-2"></i> Apakah bisa minta dibuatkan contoh/sample produk dulu?</h4>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed pl-6">
+                        Bisa! Untuk pemesanan jumlah banyak (partai besar), kami melayani pembuatan sampel produk sebelum naik produksi massal penuh.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark-900 border-t border-slate-800/80 pt-16 pb-12 text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-accent-500 flex items-center justify-center text-dark-950 font-black text-lg">
+                            <i class="fa-solid fa-shirt"></i>
+                        </div>
+                        <span class="font-heading font-extrabold text-2xl text-white tracking-wider">
+                            jk97industries<span class="text-accent-500">_</span>
+                        </span>
+                    </div>
+                    <p class="text-xs text-slate-400 max-w-md leading-relaxed">
+                        Vendor konveksi terpercaya spesialis pembuatan Kaos Sablon (Plastisol, DTF) dan Bordir Komputer (Kemeja PDL, Polo, Jaket, Topi). Pilihan tepat untuk kualitas apparel terbaikmu.
+                    </p>
+                    <div class="pt-2 flex items-center space-x-3">
+                        <a href="https://instagram.com/jk97industries_?vrfl=Znl1azRxZWU2YTQ4" target="_blank" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-slate-300 hover:text-white transition-colors">
+                            <i class="fa-brands fa-instagram text-base"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@jk97industries?_r=1&_t=ZS-9AW9Q1lzLzJ" target="_blank" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-slate-300 hover:text-white transition-colors">
+                            <i class="fa-brands fa-tiktok text-base"></i> 
+                        </a>
+                        <a href="https://facebook.com/jk97industries" target="_blank" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-slate-300 hover:text-white transition-colors">
+                            <i class="fa-brands fa-facebook text-base"></i>
+                        </a>
+                        <a href="https://wa.me/6281903236949" target="_blank" class="w-9 h-9 rounded-lg bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Navigasi</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="#home" class="hover:text-accent-400 transition-colors">Beranda</a></li>
+                        <li><a href="#katalog" class="hover:text-accent-400 transition-colors">Katalog Kaos (Sablon)</a></li>
+                        <li><a href="#katalog" class="hover:text-accent-400 transition-colors">Katalog Bordir</a></li>
+                        <li><a href="#keunggulan" class="hover:text-accent-400 transition-colors">Keunggulan Layanan</a></li>
+                        <li><a href="#cara-order" class="hover:text-accent-400 transition-colors">Cara Pemesanan</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Kontak Vendor</h4>
+                    <div class="space-y-3 text-xs">
+                        <p class="flex items-start gap-2.5">
+                            <i class="fa-brands fa-whatsapp text-emerald-400 text-base mt-0.5"></i>
+                            <div>
+                                <span class="block font-semibold text-white">WhatsApp / Telepon:</span>
+                                <a href="https://wa.me/6281903236949" target="_blank" class="text-accent-400 hover:underline">+62 819-0323-6949</a>
+                            </div>
+                        </p>
+                        <p class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-clock text-slate-400 text-base mt-0.5"></i>
+                            <div>
+                                <span class="block font-semibold text-white">Jam Kerja:</span>
+                                <span>Senin - Sabtu (08.00 - 18.00 WIB)</span>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+                <p>&copy; 2026 <strong class="text-slate-400">jk97industries_</strong>. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6281903236949?text=Halo%20jk97industries_,%20saya%20mau%20konsultasi%20pemesanan%20konveksi" target="_blank" class="fixed bottom-6 right-6 z-40 bg-emerald-500 hover:bg-emerald-400 text-dark-950 font-bold p-4 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 glow-effect group" title="Chat WhatsApp +62 819-0323-6949">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+        <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-500 ease-in-out font-bold text-xs pl-0 group-hover:pl-2 text-dark-950">
+            Chat WhatsApp
+        </span>
+    </a>
+
+    <div id="product-modal" class="fixed inset-0 z-50 hidden bg-dark-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-card border border-slate-700 bg-dark-900 rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl relative animate-fade-in">
+            <button onclick="closeModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center transition-colors z-10">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="relative h-56 bg-slate-950">
+                <img id="modal-img" src="" alt="Detail Produk" class="w-full h-full object-cover">
+            </div>
+
+            <div class="p-6 space-y-4">
+                <h3 id="modal-title" class="font-heading text-xl font-black text-white"></h3>
+                
+                <div class="space-y-2 text-xs border-y border-slate-800 py-3">
+                    <p class="flex justify-between"><span class="text-slate-400">Bahan / Kain:</span> <strong id="modal-bahan" class="text-slate-200"></strong></p>
+                    <p class="flex justify-between"><span class="text-slate-400">Spesifikasi Teknik:</span> <strong id="modal-teknik" class="text-accent-400"></strong></p>
+                    <p class="flex justify-between"><span class="text-slate-400">Min order:</span> <strong id="modal-moq" class="text-emerald-400"></strong></p>
+                    <p class="flex justify-between"><span class="text-slate-400">Ukuran Available:</span> <strong id="modal-size" class="text-slate-200"></strong></p>
+                </div>
+
+                <div class="flex gap-3 pt-2">
+                    <button onclick="closeModal()" class="flex-1 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs transition-colors">
+                        Tutup
+                    </button>
+                    <button id="modal-wa-btn" onclick="" class="flex-1 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>Order Via WA</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const WA_NUMBER = "6281903236949";
+
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function switchCategory(category) {
+            const btnKaos = document.getElementById('btn-tab-kaos');
+            const btnBordir = document.getElementById('btn-tab-bordir');
+            const catKaos = document.getElementById('category-kaos');
+            const catBordir = document.getElementById('category-bordir');
+
+            if (category === 'kaos') {
+                btnKaos.className = 'flex-1 py-3 sm:py-4 px-4 rounded-xl font-heading font-black text-xs sm:text-sm tracking-wider transition-all duration-300 flex items-center justify-center gap-2 bg-gradient-to-r from-accent-500 to-amber-600 text-dark-950 shadow-lg shadow-accent-500/20';
+                btnBordir.className = 'flex-1 py-3 sm:py-4 px-4 rounded-xl font-heading font-black text-xs sm:text-sm tracking-wider transition-all duration-300 flex items-center justify-center gap-2 text-slate-400 hover:text-white hover:bg-slate-900';
+                
+                catKaos.classList.remove('hidden');
+                catBordir.classList.add('hidden');
+            } else {
+                btnBordir.className = 'flex-1 py-3 sm:py-4 px-4 rounded-xl font-heading font-black text-xs sm:text-sm tracking-wider transition-all duration-300 flex items-center justify-center gap-2 bg-gradient-to-r from-accent-500 to-amber-600 text-dark-950 shadow-lg shadow-accent-500/20';
+                btnKaos.className = 'flex-1 py-3 sm:py-4 px-4 rounded-xl font-heading font-black text-xs sm:text-sm tracking-wider transition-all duration-300 flex items-center justify-center gap-2 text-slate-400 hover:text-white hover:bg-slate-900';
+                
+                catBordir.classList.remove('hidden');
+                catKaos.classList.add('hidden');
+            }
+        }
+
+        function orderWA(productName) {
+            const text = `Halo jk97industries_, saya berminat dan ingin bertanya/pesan mengenai katalog: *${productName}*. Boleh minta info selengkapnya?`;
+            const encodedText = encodeURIComponent(text);
+            window.open(`https://wa.me/${WA_NUMBER}?text=${encodedText}`, '_blank');
+        }
+
+        function openModal(title, bahan, teknik, moq, size, img) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-bahan').innerText = bahan;
+            document.getElementById('modal-teknik').innerText = teknik;
+            document.getElementById('modal-moq').innerText = moq;
+            document.getElementById('modal-size').innerText = size;
+            document.getElementById('modal-img').src = img;
+            
+            const waBtn = document.getElementById('modal-wa-btn');
+            waBtn.onclick = function() {
+                orderWA(title);
+            };
+
+            document.getElementById('product-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+        }
+
+        window.onclick = function(e) {
+            const modal = document.getElementById('product-modal');
+            if (e.target === modal) {
+                closeModal();
+            }
+        };
+    </script>
+</body>
+</html>
